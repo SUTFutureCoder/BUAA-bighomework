@@ -7,7 +7,6 @@ import random
 import csv
 
 from torch.utils.data import Dataset, DataLoader
-from torchvision import transforms, utils
 from torch.utils.data.sampler import Sampler
 
 from pycocotools.coco import COCO
@@ -21,15 +20,8 @@ from PIL import Image
 
 
 class CocoDataset(Dataset):
-    """Coco dataset."""
 
     def __init__(self, root_dir, set_name='train2017', transform=None):
-        """
-        Args:
-            root_dir (string): COCO directory.
-            transform (callable, optional): Optional transform to be applied
-                on a sample.
-        """
         self.root_dir = root_dir
         self.set_name = set_name
         self.transform = transform

@@ -1,12 +1,11 @@
 import torch.nn as nn
 import torch
 import math
-import time
 import torch.utils.model_zoo as model_zoo
 from tools import BasicBlock, Bottleneck, BBoxTransform, ClipBoxes
 from anc import Anchors
 import loss
-from lib.nms.gpu_nms import gpu_nms
+from binlib.nms.gpu_nms import gpu_nms
 
 def nms(dets, thresh):
     "Dispatch to either CPU or GPU NMS implementations.\
@@ -188,7 +187,7 @@ class ResNet(nn.Module):
 
         self.clipBoxes = ClipBoxes()
         
-        self.focalLoss = losses.FocalLoss()
+        self.focalLoss = loss.FocalLoss()
                 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
