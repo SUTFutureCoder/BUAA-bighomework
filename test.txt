@@ -1,0 +1,3 @@
+coreless_battery00006555.txt
+coreless_battery00004903.txt
+core_battery00000044.txt

@@ -6,13 +6,13 @@ import argparse
 import tools
 
 ap     = argparse.ArgumentParser(description='Just for eval.')
-ap.add_argument('-N','--testImgNamePth', help='Path to Image Name txt file (optional, see readme)')
-ap.add_argument('-A','--testAnnoPth', help='Path to the root of your Annotation (optional, see readme)')
-ap.add_argument('-I','--testImgPth', help='Path to the root of your test image (optional, see readme)')
-ap.add_argument('-M','--model', help='Path to your best model (optional, see readme)')
+ap.add_argument('-source','--source')
+ap.add_argument('-anno','--anno')
+ap.add_argument('-image','--image')
+ap.add_argument('-model','--model')
 args = vars(ap.parse_args())
 
-dataset_val = TXTDataset(testImgNamePth=args['testImgNamePth'], testAnnoPth=args['testAnnoPth'], testImgPth =args['testImgPth'], transform=transforms.Compose([Normalizer(), Resizer()]))
+dataset_val = TXTDataset(source=args['source'], anno=args['anno'], image =args['image'], transform=transforms.Compose([Normalizer(), Resizer()]))
 sampler_val = AspectRatioBasedSampler(dataset_val, batch_size=1, drop_last=False)
 dataloader_val = DataLoader(dataset_val, num_workers=3, collate_fn=collater, batch_sampler=sampler_val)
 modelretina = torch.load(args['model'])

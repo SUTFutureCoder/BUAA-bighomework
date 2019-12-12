@@ -335,11 +335,11 @@ def collater(data):
     return {'img': padded_imgs, 'annot': annot_padded, 'scale': scales}
 
 class TXTDataset(Dataset):
-    def __init__(self, testImgNamePth,testAnnoPth,testImgPth, transform=None):
+    def __init__(self, source,anno,image, transform=None):
         self.classes = {"不带电芯充电宝":0, "带电芯充电宝":1}
-        self.testImgNamePth = testImgNamePth
-        self.testAnnoPth = testAnnoPth
-        self.testImgPth  = testImgPth
+        self.testImgNamePth = source
+        self.testAnnoPth = anno
+        self.testImgPth  = image
         self.transform = transform
         self.image_data = self._read_annotations(self.testImgNamePth, self.testAnnoPth,self.testImgPth)
         self.labels = {}
