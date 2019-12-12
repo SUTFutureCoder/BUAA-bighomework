@@ -2,8 +2,7 @@ import torch.nn as nn
 import torch
 import math
 import torch.utils.model_zoo as model_zoo
-from tools import BasicBlock, Bottleneck, BBoxTransform, ClipBoxes
-from anc import Anchors
+from tools import BasicBlock, Bottleneck, BBoxTransform, ClipBoxes, Anchors
 import loss
 from binlib.nms.gpu_nms import gpu_nms
 
