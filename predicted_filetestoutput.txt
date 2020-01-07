@@ -1,3 +1,0 @@
-coreless_battery00005938 0.7685 419.2446 832.68256 574.905 952.54236
-coreless_battery00002702 
-coreless_battery00000667 
