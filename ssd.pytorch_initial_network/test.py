@@ -69,7 +69,7 @@ def test_net(save_folder, net, cuda, testset, transform, thresh):
                     f.write(str(score).replace("tensor(", "").replace(")", "") + ' ' + ' '.join(str(c) for c in coords))
                 j += 1
         with open(filename, mode='a') as f:
-          f.write("\n")
+          f.write("\r\n")
 
 
 def test_voc():
